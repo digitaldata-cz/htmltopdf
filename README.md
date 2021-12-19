@@ -20,22 +20,22 @@ func main() {
   defer htmltopdf.Destroy()
 
   // Create object from file.
-  object, err := htmltopdf.NewObject("sample1.html")
+  object1, err := htmltopdf.NewObject("sample1.html")
   if err != nil {
     log.Fatal(err)
   }
-  object.Header.ContentCenter = "[title]"
-  object.Header.DisplaySeparator = true
+  object1.Header.ContentCenter = "[title]"
+  object1.Header.DisplaySeparator = true
 
   // Create object from URL.
   object2, err := htmltopdf.NewObject("https://google.com")
   if err != nil {
     log.Fatal(err)
   }
-  object.Footer.ContentLeft = "[date]"
-  object.Footer.ContentCenter = "Sample footer information"
-  object.Footer.ContentRight = "[page]"
-  object.Footer.DisplaySeparator = true
+  object2.Footer.ContentLeft = "[date]"
+  object2.Footer.ContentCenter = "Sample footer information"
+  object2.Footer.ContentRight = "[page]"
+  object2.Footer.DisplaySeparator = true
 
   // Create object from reader.
   inFile, err := os.Open("sample2.html")
@@ -59,7 +59,7 @@ func main() {
   defer converter.Destroy()
 
   // Add created objects to the converter.
-  converter.Add(object)
+  converter.Add(object1)
   converter.Add(object2)
   converter.Add(object3)
 
