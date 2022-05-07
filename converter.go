@@ -2,6 +2,7 @@ package htmltopdf
 
 /*
 #cgo LDFLAGS: -lwkhtmltox
+#cgo CFLAGS: -I"./wkhtmltopdf/include"
 
 #include <stdio.h>
 #include <stdlib.h>
