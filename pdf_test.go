@@ -1,6 +1,7 @@
 package htmltopdf
 
 import (
+	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -13,7 +14,13 @@ func TestGenerate(t *testing.T) {
 	}
 	defer Destroy()
 
-	reader := strings.NewReader("<html><body>Hello World</body></html>")
+	reader := strings.NewReader(fmt.Sprintf(`<html>
+	<body>
+		<h1>Hello world</h1>
+		<b>Wkhtmltopdf version:</b> %s<br>
+		<b>ExtendedQT:</b> %t<br>
+	</body>
+</html>`, Version(), ExtendedQT()))
 	object, err := NewObjectFromReader(reader)
 	if err != nil {
 		t.Error(err)

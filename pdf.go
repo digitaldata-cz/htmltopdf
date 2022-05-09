@@ -13,8 +13,12 @@ var sm *sync.Map
 
 // Init initializes the library, allocating all necessary resources.
 func Init() error {
+	if sm != nil {
+		return ErrLibraryAlereadyInitialized
+	}
+
 	if C.wkhtmltopdf_init(0) != 1 {
-		return ErrLibratyNotInitialized
+		return ErrLibraryNotInitialized
 	}
 
 	sm = new(sync.Map)
