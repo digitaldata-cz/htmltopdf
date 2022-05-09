@@ -9,7 +9,10 @@ package htmltopdf
 import "C"
 import "sync"
 
-var sm *sync.Map
+var (
+	sm          *sync.Map
+	initialized bool = false
+)
 
 // Init initializes the library, allocating all necessary resources.
 func Init() error {
@@ -17,11 +20,16 @@ func Init() error {
 		return ErrLibraryAlereadyInitialized
 	}
 
+	if initialized {
+		return ErrLibraryNotReinitialized
+	}
+
 	if C.wkhtmltopdf_init(0) != 1 {
 		return ErrLibraryNotInitialized
 	}
 
 	sm = new(sync.Map)
+	initialized = true
 	return nil
 }
 

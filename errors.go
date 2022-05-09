@@ -5,6 +5,7 @@ import "errors"
 var (
 	ErrLibraryNotInitialized      = errors.New("library not initialized")
 	ErrLibraryAlereadyInitialized = errors.New("library already initialized")
+	ErrLibraryNotReinitialized    = errors.New("library can not be reinitialized")
 	ErrCreateGlobalSettings       = errors.New("can not create global settings")
 	ErrCreateConverter            = errors.New("can not create converter")
 	ErrUninitializedConverter     = errors.New("uninitialized converter")
