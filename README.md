@@ -1,4 +1,4 @@
-# htmltopdf
+# htmltopdf [![Report card](https://goreportcard.com/badge/github.com/digitaldata-cz/htmltopdf)](https://goreportcard.com/report/github.com/digitaldata-cz/htmltopdf)
 
 Package htmltopdf implements wkhtmltopdf Go bindings. It can be used to convert HTML documents to PDF files.
 The package does not use the wkhtmltopdf binary. Instead, it uses the wkhtmltox library directly.
