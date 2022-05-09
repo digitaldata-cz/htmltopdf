@@ -1,3 +1,4 @@
 *.exe
 *.pdf
-/examples
+/examples/json-input
+/examples/test
